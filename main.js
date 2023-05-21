@@ -1,7 +1,11 @@
+// https://qiita.com/khinatas3/items/0d422c1dd2b8af085827
+// https://github.com/gettingsignals/discord-voicebox
+// https://github.com/VOICEVOX/voicevox_engine
+
 require("dotenv").config();
 const { Client, GatewayIntentBits, ApplicationCommandOptionType, ChannelType } = require("discord.js");
 const client = new Client({ intents: Object.values(GatewayIntentBits) });
-const { getVoiceConnection, createAudioResource, StreamType, createAudioPlayer, NoSubscriberBehavior, generateDependencyReport, joinVoiceChannel, getVoiceConnections } = require("@discordjs/voice");
+const { getVoiceConnection, createAudioResource, StreamType, createAudioPlayer, NoSubscriberBehavior, joinVoiceChannel, getVoiceConnections } = require("@discordjs/voice");
 const ping = require("ping");
 const fs = require("fs");
 const wait = (sec) => {
@@ -12,7 +16,6 @@ const wait = (sec) => {
 const { default: axios } = require("axios");
 const rpc = axios.create({ baseURL: "http://127.0.0.1:50021", proxy: false });
 const default_voice = 6;
-const voiceMap = new Map();
 
 client.once("ready", async () => {
     setInterval(async () => {
